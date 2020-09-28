@@ -1,16 +1,19 @@
 <script>
-  import Child from './Child.svelte';
+	import Modal from 'svelte-simple-modal';
+	import Child from './Child.svelte';
   export let name = 'World';
 </script>
 
-<main>
-  <label>
-    Name:
-    <input bind:value={name} />
-  </label>
-	<h1>Hello {name}!</h1>
-  <Child {name} />
-</main>
+<Modal>
+	<main>
+		<label>
+			Name:
+			<input bind:value={name} />
+		</label>
+		<h1>Hello {name}!</h1>
+		<Child {name} />
+	</main>
+</Modal>
 
 <style>
 	main {

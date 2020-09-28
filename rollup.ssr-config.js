@@ -1,3 +1,4 @@
+import resolve from 'rollup-plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
 
 export default {
@@ -15,7 +16,11 @@ export default {
   plugins: [
     svelte({
       generate: 'ssr',
-      hydratable: true
-    })
+      hydratable: true,
+    }),
+    resolve({
+      // Below is the important line!
+      dedupe: ['svelte', 'svelte/transition', 'svelte/internal']
+    }),
   ]
 };
